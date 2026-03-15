@@ -1,0 +1,28 @@
+{
+  "name": "nuxt-v4",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "build:preview": "nuxt build && nuxt preview",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-vue-next": "^0.577.0",
+    "nuxt": "^4.4.2",
+    "radix-vue": "^1.9.17",
+    "tailwind-merge": "^3.5.0",
+    "vue": "^3.5.30",
+    "vue-router": "^5.0.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.1",
+    "shadcn-nuxt": "^2.4.3",
+    "tailwindcss": "^4.2.1"
+  }
+}
