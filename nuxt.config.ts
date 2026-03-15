@@ -18,4 +18,12 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  nitro: {
+    experimental: {
+      openAPI: true,
+    },
+    openAPI: {
+      production: "runtime",
+    },
+  },
 });
