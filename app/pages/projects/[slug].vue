@@ -20,19 +20,7 @@ const next = computed(() => currentIndex.value < projects.length - 1 ? projects[
 
 <template>
   <div class="min-h-screen flex flex-col">
-
-    <!-- Nav -->
-    <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-[1.1rem] bg-background/85 backdrop-blur-md border-b border-border">
-      <NuxtLink to="/" class="font-bold text-[1.15rem] tracking-tight no-underline text-foreground">
-        sven<span class="text-primary">.</span>dev
-      </NuxtLink>
-      <nav class="flex gap-1">
-        <NuxtLink to="/#about" class="text-muted-foreground text-sm px-3 py-1.5 rounded-md transition-colors hover:text-foreground hover:bg-accent no-underline">About</NuxtLink>
-        <NuxtLink to="/#stack" class="text-muted-foreground text-sm px-3 py-1.5 rounded-md transition-colors hover:text-foreground hover:bg-accent no-underline">Stack</NuxtLink>
-        <NuxtLink to="/#projects" class="text-muted-foreground text-sm px-3 py-1.5 rounded-md transition-colors hover:text-foreground hover:bg-accent no-underline">Projects</NuxtLink>
-        <NuxtLink to="/#contact" class="text-muted-foreground text-sm px-3 py-1.5 rounded-md transition-colors hover:text-foreground hover:bg-accent no-underline">Contact</NuxtLink>
-      </nav>
-    </header>
+    <AppNav />
 
     <main class="flex-1 pt-32 pb-20 px-8">
       <div class="max-w-[780px] mx-auto">
@@ -58,11 +46,7 @@ const next = computed(() => currentIndex.value < projects.length - 1 ? projects[
             {{ project!.tagline }}
           </p>
           <div class="flex gap-2 flex-wrap mb-8">
-            <span
-              v-for="tag in project!.tags"
-              :key="tag"
-              class="text-xs font-medium bg-primary/10 text-primary border border-primary/25 px-2.5 py-0.5 rounded-full"
-            >{{ tag }}</span>
+            <TagBadge v-for="tag in project!.tags" :key="tag" :tag="tag" />
           </div>
           <div v-if="project!.url || project!.github" class="flex gap-3 flex-wrap">
             <a
@@ -134,9 +118,6 @@ const next = computed(() => currentIndex.value < projects.length - 1 ? projects[
       </div>
     </main>
 
-    <footer class="text-center py-8 border-t border-border text-xs text-muted-foreground">
-      © 2026 Sven. Built with Nuxt.
-    </footer>
-
+    <AppFooter />
   </div>
 </template>

@@ -37,22 +37,22 @@
   --foreground: oklch(0.93 0.007 275);       /* #e8e8f0 */
 
   --card: oklch(0.10 0.003 285);             /* #16161a */
-  --card-foreground: oklch(0.93 0.007 275);
+  --card-foreground: var(--foreground);
 
   --popover: oklch(0.10 0.003 285);
-  --popover-foreground: oklch(0.93 0.007 275);
+  --popover-foreground: var(--foreground);
 
   --primary: oklch(0.62 0.19 277);           /* #7c6dfa */
   --primary-foreground: oklch(1 0 0);
 
   --secondary: oklch(0.10 0.003 285);
-  --secondary-foreground: oklch(0.93 0.007 275);
+  --secondary-foreground: var(--foreground);
 
   --muted: oklch(0.10 0.003 285);
   --muted-foreground: oklch(0.60 0.022 280); /* #8888a0 */
 
   --accent: oklch(0.14 0.004 285);           /* subtle hover surface */
-  --accent-foreground: oklch(0.93 0.007 275);
+  --accent-foreground: var(--foreground);
 
   --destructive: oklch(0.704 0.191 22.216);
 

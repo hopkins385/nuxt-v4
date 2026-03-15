@@ -1,17 +1,18 @@
 <script setup lang="ts">
-const { projects } = useProjects()
+const { projects: projectList } = useProjects()
 
-const navItems = [
-  { label: 'About', id: 'about' },
-  { label: 'Stack', id: 'stack' },
-  { label: 'Projects', id: 'projects' },
-  { label: 'Contact', id: 'contact' },
-]
+const aboutRef = useTemplateRef<HTMLElement>('about')
+const stackRef = useTemplateRef<HTMLElement>('stack')
+const projectsRef = useTemplateRef<HTMLElement>('projects')
+const contactRef = useTemplateRef<HTMLElement>('contact')
 
-const scrollTo = (id: string) =>
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+const sectionRefs = { about: aboutRef, stack: stackRef, projects: projectsRef, contact: contactRef }
 
-const stack = [
+const scrollTo = (id: keyof typeof sectionRefs) => {
+  sectionRefs[id].value?.scrollIntoView({ behavior: 'smooth' })
+}
+
+const stackItems = [
   { name: 'Vue / Nuxt', icon: '💚', desc: 'Full-stack SSR apps' },
   { name: 'TypeScript', icon: '🔷', desc: 'Type-safe everything' },
   { name: 'Node.js', icon: '🟩', desc: 'APIs & automation' },
@@ -23,23 +24,7 @@ const stack = [
 
 <template>
   <div class="min-h-screen">
-
-    <!-- Nav -->
-    <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-[1.1rem] bg-background/85 backdrop-blur-md border-b border-border">
-      <NuxtLink to="/" class="font-bold text-[1.15rem] tracking-tight no-underline text-foreground">
-        sven<span class="text-primary">.</span>dev
-      </NuxtLink>
-      <nav class="flex gap-1">
-        <button
-          v-for="item in navItems"
-          :key="item.id"
-          class="bg-transparent border-none cursor-pointer text-muted-foreground text-sm px-3 py-1.5 rounded-md transition-colors hover:text-foreground hover:bg-accent"
-          @click="scrollTo(item.id)"
-        >
-          {{ item.label }}
-        </button>
-      </nav>
-    </header>
+    <AppNav />
 
     <!-- Hero -->
     <section class="relative min-h-screen flex items-center px-8 pt-32 pb-20 overflow-hidden">
@@ -55,13 +40,13 @@ const stack = [
         </p>
         <div class="flex gap-4 flex-wrap">
           <button
-            class="inline-flex items-center bg-primary text-primary-foreground border-none cursor-pointer px-6 py-3 rounded-lg text-[0.95rem] font-semibold transition-all hover:opacity-90 hover:-translate-y-px"
+            class="inline-flex items-center bg-primary text-primary-foreground px-6 py-3 rounded-lg text-[0.95rem] font-semibold transition-all hover:opacity-90 hover:-translate-y-px"
             @click="scrollTo('projects')"
           >
             See my work
           </button>
           <button
-            class="inline-flex items-center bg-transparent text-foreground border border-border cursor-pointer px-6 py-3 rounded-lg text-[0.95rem] font-medium transition-all hover:border-primary hover:bg-primary/10"
+            class="inline-flex items-center bg-transparent text-foreground border border-border px-6 py-3 rounded-lg text-[0.95rem] font-medium transition-all hover:border-primary hover:bg-primary/10"
             @click="scrollTo('contact')"
           >
             Get in touch
@@ -75,7 +60,7 @@ const stack = [
     </section>
 
     <!-- About -->
-    <section id="about" class="py-24 px-8 bg-card">
+    <section id="about" ref="about" class="py-24 px-8 bg-card">
       <div class="max-w-[900px] mx-auto">
         <h2 class="text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em] mb-3">About me</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
@@ -114,13 +99,13 @@ const stack = [
     </section>
 
     <!-- Stack -->
-    <section id="stack" class="py-24 px-8">
+    <section id="stack" ref="stack" class="py-24 px-8">
       <div class="max-w-[900px] mx-auto">
         <h2 class="text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em] mb-3">Tech stack</h2>
         <p class="text-muted-foreground text-base mb-12">Tools I reach for to build reliable, modern products.</p>
         <div class="grid grid-cols-[repeat(auto-fill,minmax(230px,1fr))] gap-4">
           <div
-            v-for="item in stack"
+            v-for="item in stackItems"
             :key="item.name"
             class="bg-card border border-border rounded-xl p-5 flex flex-col gap-1.5 transition-all hover:border-primary hover:-translate-y-0.5"
           >
@@ -133,13 +118,13 @@ const stack = [
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="py-24 px-8 bg-card">
+    <section id="projects" ref="projects" class="py-24 px-8 bg-card">
       <div class="max-w-[900px] mx-auto">
         <h2 class="text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em] mb-3">Selected work</h2>
         <p class="text-muted-foreground text-base mb-12">A few things I've built recently.</p>
         <div class="grid gap-4">
           <NuxtLink
-            v-for="project in projects"
+            v-for="project in projectList"
             :key="project.slug"
             :to="`/projects/${project.slug}`"
             class="group bg-background border border-border rounded-xl px-8 py-7 no-underline text-foreground block transition-all hover:border-primary hover:translate-x-1"
@@ -153,11 +138,7 @@ const stack = [
             </div>
             <p class="text-muted-foreground text-sm mb-4 leading-[1.6]">{{ project.tagline }}</p>
             <div class="flex gap-2 flex-wrap">
-              <span
-                v-for="tag in project.tags"
-                :key="tag"
-                class="text-xs font-medium bg-primary/10 text-primary border border-primary/25 px-2.5 py-0.5 rounded-full"
-              >{{ tag }}</span>
+              <TagBadge v-for="tag in project.tags" :key="tag" :tag="tag" />
             </div>
           </NuxtLink>
         </div>
@@ -165,7 +146,7 @@ const stack = [
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-24 px-8">
+    <section id="contact" ref="contact" class="py-24 px-8">
       <div class="max-w-[900px] mx-auto text-center">
         <h2 class="text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em] mb-3">Let's build something</h2>
         <p class="text-muted-foreground text-base mb-10">
@@ -185,9 +166,6 @@ const stack = [
       </div>
     </section>
 
-    <footer class="text-center py-8 border-t border-border text-xs text-muted-foreground">
-      © 2026 Sven. Built with Nuxt.
-    </footer>
-
+    <AppFooter />
   </div>
 </template>
