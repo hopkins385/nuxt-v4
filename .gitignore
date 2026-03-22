@@ -24,6 +24,4 @@ logs
 !.env.example
 
 # Agent files
-.agents
-!.claude
 .playwright-mcp
