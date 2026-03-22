@@ -14,10 +14,7 @@ const links = [
     class="bg-background/85 fixed top-0 right-0 left-0 z-50 flex items-center justify-between border-b px-8 py-[1.1rem] backdrop-blur-md transition-colors"
     :class="scrollY > 0 ? 'border-border' : 'border-transparent'"
   >
-    <NuxtLink
-      to="/"
-      class="text-foreground text-[1.15rem] font-bold tracking-tight no-underline"
-    >
+    <NuxtLink to="/" class="text-foreground text-[1.15rem] font-bold tracking-tight no-underline">
       sven<span class="text-primary">.</span>dev
     </NuxtLink>
     <nav class="flex gap-1">

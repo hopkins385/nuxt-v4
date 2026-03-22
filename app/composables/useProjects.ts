@@ -31,8 +31,7 @@ const projects: Project[] = [
   {
     slug: 'open-source-cli',
     title: 'Open Source CLI',
-    tagline:
-      'Developer tool with 2k+ GitHub stars automating repetitive tasks.',
+    tagline: 'Developer tool with 2k+ GitHub stars automating repetitive tasks.',
     desc: 'A command-line tool that automates common developer workflows — scaffolding, code generation, and project setup. Adopted by the community and actively maintained.',
     tags: ['Node.js', 'TypeScript', 'Open Source'],
     year: 2024,

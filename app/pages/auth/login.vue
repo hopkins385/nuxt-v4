@@ -2,13 +2,7 @@
 import { toTypedSchema } from '@vee-validate/zod';
 import { useForm } from 'vee-validate';
 import * as z from 'zod';
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '~/components/ui/form';
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '~/components/ui/form';
 
 const formSchema = z.object({
   email: z.email({ error: 'Invalid email address' }),
@@ -42,21 +36,12 @@ const onSubmit = handleSubmit(async values => {
     class="flex min-h-screen items-center justify-center px-6 pt-4 pb-8"
     style="
       background:
-        radial-gradient(
-          ellipse 80% 60% at 50% 50%,
-          oklch(0.62 0.19 277 / 0.2) 0%,
-          transparent 65%
-        ),
-        var(--background);
+        radial-gradient(ellipse 80% 60% at 50% 50%, oklch(0.62 0.19 277 / 0.2) 0%, transparent 65%), var(--background);
     "
   >
     <div class="w-full max-w-[360px]">
       <div class="mb-6 text-center">
-        <h1
-          class="mb-1.5 text-[1.75rem] leading-tight font-extrabold tracking-[-0.03em]"
-        >
-          Sign in
-        </h1>
+        <h1 class="mb-1.5 text-[1.75rem] leading-tight font-extrabold tracking-[-0.03em]">Sign in</h1>
         <p class="text-muted-foreground text-sm">Admin access only.</p>
       </div>
 
@@ -74,12 +59,7 @@ const onSubmit = handleSubmit(async values => {
               <FormItem>
                 <FormLabel class="text-foreground/75">Email</FormLabel>
                 <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="you@example.com"
-                    autocomplete="email"
-                    v-bind="componentField"
-                  />
+                  <Input type="email" placeholder="you@example.com" autocomplete="email" v-bind="componentField" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -100,12 +80,7 @@ const onSubmit = handleSubmit(async values => {
               </FormItem>
             </FormField>
 
-            <p
-              v-if="serverError"
-              role="alert"
-              aria-live="polite"
-              class="text-destructive text-xs"
-            >
+            <p v-if="serverError" role="alert" aria-live="polite" class="text-destructive text-xs">
               {{ serverError }}
             </p>
 
@@ -130,9 +105,7 @@ const onSubmit = handleSubmit(async values => {
           to="/"
           class="text-muted-foreground hover:text-foreground group inline-flex items-center gap-1.5 text-sm no-underline transition-colors"
         >
-          <span class="transition-transform group-hover:-translate-x-0.5"
-            >←</span
-          >
+          <span class="transition-transform group-hover:-translate-x-0.5">←</span>
           Back to site
         </NuxtLink>
       </div>

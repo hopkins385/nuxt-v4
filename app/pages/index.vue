@@ -32,24 +32,15 @@ const stackItems = [
     <AppNav />
 
     <!-- Hero -->
-    <section
-      class="relative flex min-h-screen items-center overflow-hidden px-8 pt-32 pb-20"
-    >
+    <section class="relative flex min-h-screen items-center overflow-hidden px-8 pt-32 pb-20">
       <div class="relative z-10 mx-auto max-w-2xl">
-        <p class="text-muted-foreground mb-4 text-[1.05rem]">
-          Hey, I'm Sven 👋
-        </p>
-        <h1
-          class="mb-6 text-[clamp(2.6rem,6vw,4.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em]"
-        >
+        <p class="text-muted-foreground mb-4 text-[1.05rem]">Hey, I'm Sven 👋</p>
+        <h1 class="mb-6 text-[clamp(2.6rem,6vw,4.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em]">
           Solo developer.<br />
           <span class="text-primary">Full-stack</span> builder.
         </h1>
-        <p
-          class="text-muted-foreground mb-10 max-w-[520px] text-[1.15rem] leading-[1.7]"
-        >
-          I design, build, and ship products end-to-end — from idea to
-          production, without a team getting in the way.
+        <p class="text-muted-foreground mb-10 max-w-[520px] text-[1.15rem] leading-[1.7]">
+          I design, build, and ship products end-to-end — from idea to production, without a team getting in the way.
         </p>
         <div class="flex flex-wrap gap-4">
           <button
@@ -75,57 +66,33 @@ const stackItems = [
     <!-- About -->
     <section id="about" ref="about" class="bg-card px-8 py-24">
       <div class="mx-auto max-w-[900px]">
-        <h2
-          class="mb-3 text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em]"
-        >
-          About me
-        </h2>
-        <div
-          class="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-16"
-        >
+        <h2 class="mb-3 text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em]">About me</h2>
+        <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-16">
           <div class="flex flex-col gap-4">
             <p class="text-muted-foreground leading-[1.75]">
-              I'm a solo developer who handles the full product lifecycle — from
-              architecture and backend to UI and deployment. No hand-offs, no
-              overhead, just fast and deliberate execution.
+              I'm a solo developer who handles the full product lifecycle — from architecture and backend to UI and
+              deployment. No hand-offs, no overhead, just fast and deliberate execution.
             </p>
             <p class="text-muted-foreground leading-[1.75]">
-              I work with startups and founders to turn complex problems into
-              clean, maintainable software. I care deeply about code quality,
-              user experience, and shipping things that actually work.
+              I work with startups and founders to turn complex problems into clean, maintainable software. I care
+              deeply about code quality, user experience, and shipping things that actually work.
             </p>
             <p class="text-muted-foreground leading-[1.75]">
-              When I'm not building products, I'm contributing to open source or
-              writing about the craft of software.
+              When I'm not building products, I'm contributing to open source or writing about the craft of software.
             </p>
           </div>
           <div class="flex flex-col gap-8">
             <div>
-              <span
-                class="text-primary block text-[2.5rem] leading-none font-extrabold tracking-[-0.03em]"
-                >8+</span
-              >
-              <span class="text-muted-foreground text-sm"
-                >Years of experience</span
-              >
+              <span class="text-primary block text-[2.5rem] leading-none font-extrabold tracking-[-0.03em]">8+</span>
+              <span class="text-muted-foreground text-sm">Years of experience</span>
             </div>
             <div>
-              <span
-                class="text-primary block text-[2.5rem] leading-none font-extrabold tracking-[-0.03em]"
-                >30+</span
-              >
-              <span class="text-muted-foreground text-sm"
-                >Projects shipped</span
-              >
+              <span class="text-primary block text-[2.5rem] leading-none font-extrabold tracking-[-0.03em]">30+</span>
+              <span class="text-muted-foreground text-sm">Projects shipped</span>
             </div>
             <div>
-              <span
-                class="text-primary block text-[2.5rem] leading-none font-extrabold tracking-[-0.03em]"
-                >100%</span
-              >
-              <span class="text-muted-foreground text-sm"
-                >Solo, no agency markup</span
-              >
+              <span class="text-primary block text-[2.5rem] leading-none font-extrabold tracking-[-0.03em]">100%</span>
+              <span class="text-muted-foreground text-sm">Solo, no agency markup</span>
             </div>
           </div>
         </div>
@@ -135,14 +102,8 @@ const stackItems = [
     <!-- Stack -->
     <section id="stack" ref="stack" class="px-8 py-24">
       <div class="mx-auto max-w-[900px]">
-        <h2
-          class="mb-3 text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em]"
-        >
-          Tech stack
-        </h2>
-        <p class="text-muted-foreground mb-12 text-base">
-          Tools I reach for to build reliable, modern products.
-        </p>
+        <h2 class="mb-3 text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em]">Tech stack</h2>
+        <p class="text-muted-foreground mb-12 text-base">Tools I reach for to build reliable, modern products.</p>
         <div class="grid grid-cols-[repeat(auto-fill,minmax(230px,1fr))] gap-4">
           <div
             v-for="item in stackItems"
@@ -160,14 +121,8 @@ const stackItems = [
     <!-- Projects -->
     <section id="projects" ref="projects" class="bg-card px-8 py-24">
       <div class="mx-auto max-w-[900px]">
-        <h2
-          class="mb-3 text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em]"
-        >
-          Selected work
-        </h2>
-        <p class="text-muted-foreground mb-12 text-base">
-          A few things I've built recently.
-        </p>
+        <h2 class="mb-3 text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em]">Selected work</h2>
+        <p class="text-muted-foreground mb-12 text-base">A few things I've built recently.</p>
         <div class="grid gap-4">
           <NuxtLink
             v-for="project in projectList"
@@ -178,13 +133,12 @@ const stackItems = [
             <div class="mb-2 flex items-center justify-between">
               <h3 class="text-[1.1rem] font-bold">{{ project.title }}</h3>
               <div class="flex shrink-0 items-center gap-3">
-                <span class="text-muted-foreground text-xs">{{
-                  project.year
-                }}</span>
+                <span class="text-muted-foreground text-xs">{{ project.year }}</span>
                 <span
                   class="text-muted-foreground group-hover:text-primary text-[1.1rem] transition-all group-hover:translate-x-1"
-                  >→</span
                 >
+                  →
+                </span>
               </div>
             </div>
             <p class="text-muted-foreground mb-4 text-sm leading-[1.6]">
@@ -201,14 +155,9 @@ const stackItems = [
     <!-- Contact -->
     <section id="contact" ref="contact" class="px-8 py-24">
       <div class="mx-auto max-w-[900px] text-center">
-        <h2
-          class="mb-3 text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em]"
-        >
-          Let's build something
-        </h2>
+        <h2 class="mb-3 text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em]">Let's build something</h2>
         <p class="text-muted-foreground mb-10 text-base">
-          Have a project in mind? I'm available for freelance work and
-          collaborations.
+          Have a project in mind? I'm available for freelance work and collaborations.
         </p>
         <a
           href="mailto:hello@sven.dev"
@@ -217,21 +166,13 @@ const stackItems = [
           hello@sven.dev
         </a>
         <div class="flex justify-center gap-6">
-          <a
-            href="#"
-            class="text-muted-foreground hover:text-primary text-sm no-underline transition-colors"
-            >GitHub</a
-          >
-          <a
-            href="#"
-            class="text-muted-foreground hover:text-primary text-sm no-underline transition-colors"
-            >LinkedIn</a
-          >
-          <a
-            href="#"
-            class="text-muted-foreground hover:text-primary text-sm no-underline transition-colors"
-            >Twitter / X</a
-          >
+          <a href="#" class="text-muted-foreground hover:text-primary text-sm no-underline transition-colors">GitHub</a>
+          <a href="#" class="text-muted-foreground hover:text-primary text-sm no-underline transition-colors">
+            LinkedIn
+          </a>
+          <a href="#" class="text-muted-foreground hover:text-primary text-sm no-underline transition-colors">
+            Twitter / X
+          </a>
         </div>
       </div>
     </section>

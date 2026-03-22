@@ -1,0 +1,8 @@
+CLAUDE.md
+*/public/**
+**/node_modules/**
+**/public/**
+**/public/**/**
+pnpm-lock.yaml
+pnpm-workspace.yaml
+docs/**/*.md

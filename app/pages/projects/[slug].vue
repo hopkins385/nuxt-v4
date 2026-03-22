@@ -13,17 +13,9 @@ useSeoMeta({
   description: project.value.tagline,
 });
 
-const currentIndex = computed(() =>
-  projects.findIndex(p => p.slug === project.value?.slug),
-);
-const prev = computed(() =>
-  currentIndex.value > 0 ? projects[currentIndex.value - 1] : null,
-);
-const next = computed(() =>
-  currentIndex.value < projects.length - 1
-    ? projects[currentIndex.value + 1]
-    : null,
-);
+const currentIndex = computed(() => projects.findIndex(p => p.slug === project.value?.slug));
+const prev = computed(() => (currentIndex.value > 0 ? projects[currentIndex.value - 1] : null));
+const next = computed(() => (currentIndex.value < projects.length - 1 ? projects[currentIndex.value + 1] : null));
 </script>
 
 <template>
@@ -43,32 +35,23 @@ const next = computed(() =>
         <!-- Header -->
         <div class="mb-10">
           <div class="mb-5 flex flex-wrap gap-2">
-            <span
-              class="text-muted-foreground border-border rounded-full border px-3 py-0.5 text-xs"
-              >{{ project!.year }}</span
-            >
-            <span
-              class="text-muted-foreground border-border rounded-full border px-3 py-0.5 text-xs"
-              >{{ project!.role }}</span
-            >
+            <span class="text-muted-foreground border-border rounded-full border px-3 py-0.5 text-xs">{{
+              project!.year
+            }}</span>
+            <span class="text-muted-foreground border-border rounded-full border px-3 py-0.5 text-xs">{{
+              project!.role
+            }}</span>
           </div>
-          <h1
-            class="mb-4 text-[clamp(2rem,5vw,3.2rem)] leading-[1.1] font-extrabold tracking-[-0.03em]"
-          >
+          <h1 class="mb-4 text-[clamp(2rem,5vw,3.2rem)] leading-[1.1] font-extrabold tracking-[-0.03em]">
             {{ project!.title }}
           </h1>
-          <p
-            class="text-muted-foreground mb-6 max-w-[580px] text-[1.1rem] leading-[1.6]"
-          >
+          <p class="text-muted-foreground mb-6 max-w-[580px] text-[1.1rem] leading-[1.6]">
             {{ project!.tagline }}
           </p>
           <div class="mb-8 flex flex-wrap gap-2">
             <TagBadge v-for="tag in project!.tags" :key="tag" :tag="tag" />
           </div>
-          <div
-            v-if="project!.url || project!.github"
-            class="flex flex-wrap gap-3"
-          >
+          <div v-if="project!.url || project!.github" class="flex flex-wrap gap-3">
             <a
               v-if="project!.url"
               :href="project!.url"
@@ -95,30 +78,20 @@ const next = computed(() =>
         <!-- Body -->
         <div class="mb-20 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
           <div>
-            <h2
-              class="text-muted-foreground mb-4 text-[0.7rem] tracking-[0.1em] uppercase"
-            >
-              Overview
-            </h2>
+            <h2 class="text-muted-foreground mb-4 text-[0.7rem] tracking-[0.1em] uppercase">Overview</h2>
             <p class="text-muted-foreground leading-[1.75]">
               {{ project!.desc }}
             </p>
           </div>
           <div>
-            <h2
-              class="text-muted-foreground mb-4 text-[0.7rem] tracking-[0.1em] uppercase"
-            >
-              Highlights
-            </h2>
+            <h2 class="text-muted-foreground mb-4 text-[0.7rem] tracking-[0.1em] uppercase">Highlights</h2>
             <ul class="flex list-none flex-col gap-4">
               <li
                 v-for="(item, i) in project!.highlights"
                 :key="i"
                 class="text-muted-foreground flex items-start gap-3 text-sm leading-[1.6]"
               >
-                <span class="text-primary mt-1.5 shrink-0 text-[0.6rem]"
-                  >✦</span
-                >
+                <span class="text-primary mt-1.5 shrink-0 text-[0.6rem]">✦</span>
                 <span>{{ item }}</span>
               </li>
             </ul>
