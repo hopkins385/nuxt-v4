@@ -16,6 +16,7 @@ defineRouteMeta({
 });
 
 export default defineEventHandler(async (_event) => {
+  await requireUserSession(_event);
   const validatedParams = await getValidatedRouterParams(
     _event,
     userIdParamSchema.parse,

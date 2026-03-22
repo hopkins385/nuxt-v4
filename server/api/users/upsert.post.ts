@@ -42,6 +42,7 @@ defineRouteMeta({
 });
 
 export default defineEventHandler(async (_event) => {
+  await requireUserSession(_event);
   const validatedBody = await readValidatedBody(_event, upsertUserSchema.parse);
 
   if ("id" in validatedBody) {

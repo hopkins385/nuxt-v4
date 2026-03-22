@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Skill(zod-validaton)"
+      "mcp__playwright__*"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "playwright"
+  ],
+  "enableAllProjectMcpServers": true
 }

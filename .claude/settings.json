@@ -1,0 +1,15 @@
+{
+  "includeCoAuthoredBy": false,
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "teammateMode": "tmux",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "mcp__playwright__*"
+    ]
+  }
+}

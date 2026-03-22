@@ -28,4 +28,13 @@ export default defineEventHandler(async (_event) => {
     _event,
     listUsersQuerySchema.parse,
   );
+  // make sure the user is logged in
+  // This will throw a 401 error if the request doesn't come from a valid user session
+  await requireUserSession(_event);
+
+  return {
+    users: [],
+    page: validatedQuery.page,
+    pageSize: validatedQuery.pageSize,
+  };
 });
