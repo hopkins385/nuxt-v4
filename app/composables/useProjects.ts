@@ -1,14 +1,14 @@
 export interface Project {
-  slug: string
-  title: string
-  tagline: string
-  desc: string
-  tags: string[]
-  year: number
-  role: string
-  highlights: string[]
-  url?: string
-  github?: string
+  slug: string;
+  title: string;
+  tagline: string;
+  desc: string;
+  tags: string[];
+  year: number;
+  role: string;
+  highlights: string[];
+  url?: string;
+  github?: string;
 }
 
 const projects: Project[] = [
@@ -31,7 +31,8 @@ const projects: Project[] = [
   {
     slug: 'open-source-cli',
     title: 'Open Source CLI',
-    tagline: 'Developer tool with 2k+ GitHub stars automating repetitive tasks.',
+    tagline:
+      'Developer tool with 2k+ GitHub stars automating repetitive tasks.',
     desc: 'A command-line tool that automates common developer workflows — scaffolding, code generation, and project setup. Adopted by the community and actively maintained.',
     tags: ['Node.js', 'TypeScript', 'Open Source'],
     year: 2024,
@@ -59,9 +60,9 @@ const projects: Project[] = [
       'Reduced manual reporting time by 80% for the ops team',
     ],
   },
-]
+];
 
 export const useProjects = () => {
-  const getProject = (slug: string) => projects.find(p => p.slug === slug)
-  return { projects, getProject }
-}
+  const getProject = (slug: string) => projects.find(p => p.slug === slug);
+  return { projects, getProject };
+};

@@ -6,7 +6,7 @@ export const useClientFetch = createUseFetch({
 });
 
 // Dynamic defaults with full control over merging
-export const useApiFetch = createUseFetch((currentOptions) => {
+export const useApiFetch = createUseFetch(currentOptions => {
   const runtimeConfig = useRuntimeConfig();
   return {
     ...currentOptions,

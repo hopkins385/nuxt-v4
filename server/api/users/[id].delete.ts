@@ -1,21 +1,21 @@
-import { userIdParamSchema } from "~~/shared/schemas/user";
+import { userIdParamSchema } from '~~/shared/schemas/user';
 
 defineRouteMeta({
   openAPI: {
-    tags: ["users"],
-    description: "Delete a user by ID",
+    tags: ['users'],
+    description: 'Delete a user by ID',
     parameters: [
       {
-        in: "path",
-        name: "id",
+        in: 'path',
+        name: 'id',
         required: true,
-        schema: { type: "string" },
+        schema: { type: 'string' },
       },
     ],
   },
 });
 
-export default defineEventHandler(async (_event) => {
+export default defineEventHandler(async _event => {
   await requireUserSession(_event);
   const validatedParams = await getValidatedRouterParams(
     _event,

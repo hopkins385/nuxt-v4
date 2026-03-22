@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -28,35 +28,36 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 
 /* Dark-first design — these are the default (light-mode equivalent is not defined) */
 :root {
-  --background: oklch(0.065 0.002 285);      /* #0d0d0f */
-  --foreground: oklch(0.93 0.007 275);       /* #e8e8f0 */
+  --background: oklch(0.065 0.002 285); /* #0d0d0f */
+  --foreground: oklch(0.93 0.007 275); /* #e8e8f0 */
 
-  --card: oklch(0.10 0.003 285);             /* #16161a */
+  --card: oklch(0.1 0.003 285); /* #16161a */
   --card-foreground: var(--foreground);
 
-  --popover: oklch(0.10 0.003 285);
+  --popover: oklch(0.1 0.003 285);
   --popover-foreground: var(--foreground);
 
-  --primary: oklch(0.62 0.19 277);           /* #7c6dfa */
+  --primary: oklch(0.62 0.19 277); /* #7c6dfa */
   --primary-foreground: oklch(1 0 0);
 
-  --secondary: oklch(0.10 0.003 285);
+  --secondary: oklch(0.1 0.003 285);
   --secondary-foreground: var(--foreground);
 
-  --muted: oklch(0.10 0.003 285);
-  --muted-foreground: oklch(0.60 0.022 280); /* #8888a0 */
+  --muted: oklch(0.1 0.003 285);
+  --muted-foreground: oklch(0.6 0.022 280); /* #8888a0 */
 
-  --accent: oklch(0.14 0.004 285);           /* subtle hover surface */
+  --accent: oklch(0.14 0.004 285); /* subtle hover surface */
   --accent-foreground: var(--foreground);
 
   --destructive: oklch(0.704 0.191 22.216);
 
-  --border: oklch(0.17 0.004 285);           /* #27272d */
+  --border: oklch(0.17 0.004 285); /* #27272d */
   --input: oklch(0.17 0.004 285);
   --ring: oklch(0.62 0.19 277);
 

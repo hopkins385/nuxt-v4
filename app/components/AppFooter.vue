@@ -1,5 +1,7 @@
 <template>
-  <footer class="text-center py-8 border-t border-border text-xs text-muted-foreground">
+  <footer
+    class="border-border text-muted-foreground border-t py-8 text-center text-xs"
+  >
     © 2026 Sven. Built with Nuxt.
   </footer>
 </template>
